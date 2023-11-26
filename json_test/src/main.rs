@@ -38,30 +38,18 @@ fn main2() -> Result<(), Box<dyn Error>> {
     let reader: BufReader<File> = BufReader::new(f);
 
     // let json: Result<serde_json::Value, serde_json::Error> = serde_json::from_reader::<BufReader<File>, serde_json::Value>(reader);
-    // dbg!(&json);
-
-    // let json = serde_json::from_reader::<BufReader<File>, serde_json::Value>(reader)?;
     let json = serde_json::from_reader::<BufReader<File>, serde_json::Value>(reader)?;
-    // dbg!(&json);
 
-    // let adata = json.get("adata");
+    // let adata = json.get("adata").unwrap();
     let adata = &json["adata"];
     dbg!(&adata);
-    dbg!(&adata.as_array().unwrap().len());
-    dbg!(&adata[0]);
-    dbg!(&adata[1]);
-    dbg!(&adata[2]);
 
-    // if let Some(adata_ary) = adata {
-    //     dbg!(adata_ary);
+    // for i in 0..(adata.as_array().unwrap().len()) {
+    for i in 0..=(adata.as_array().unwrap().len()) {
+        dbg!(&json["adata"][i]["name"]);
+        dbg!(&json["adata"][i]["value"]);
+        dbg!(&json["adata"][i]["value_"]);
+    }
 
-    //     for i in adata_ary {
-    //         dbg!(i.get("name"));
-    //     }
-    // }
-
-    // for i in json?.get("adata")?.iter() {
-    //     dbg!(&i);
-    // }
     Ok(())
 }
