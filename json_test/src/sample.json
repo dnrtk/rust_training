@@ -1,0 +1,12 @@
+{
+    "adata": [
+        {
+            "name": "name1",
+            "value": 456
+        },
+        {
+            "name": "name2",
+            "value": 789
+        }
+    ]
+}
